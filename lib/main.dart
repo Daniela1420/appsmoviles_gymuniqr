@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => AuthScreen(),
         '/register': (context) => RegisterScreen(),
-        '/menu': (context) => MenuScreen(),
+        //'/menu': (context) => MenuScreen(),
       },
     );
   }
@@ -325,7 +325,7 @@ class RegisterScreen extends StatelessWidget {
   }
 }
 
-class MenuScreen extends StatelessWidget {
+/*class MenuScreen extends StatelessWidget {
   Future<void> _launchURL(String url) async {
     final Uri uri = Uri.parse(url);
     if (await canLaunchUrl(uri)) {
@@ -426,6 +426,7 @@ class MenuScreen extends StatelessWidget {
     );
   }
 }
+*/
 class HelloWorldScreen extends StatefulWidget {
   @override
   _HelloWorldScreenState createState() => _HelloWorldScreenState(); // Implementamos createState
