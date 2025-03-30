@@ -426,38 +426,28 @@ class MenuScreen extends StatelessWidget {
     );
   }
 }
-
 class HelloWorldScreen extends StatefulWidget {
   @override
+  _HelloWorldScreenState createState() => _HelloWorldScreenState(); // Implementamos createState
+}
+
+class _HelloWorldScreenState extends State<HelloWorldScreen> { // Creamos una clase para manejar el estado
+  int _selectedIndex = 0;
+
+  final List<Widget> _pages = [
+    Center(child: Text('Inicio', style: TextStyle(fontSize: 24))),
+    Center(child: Image.asset('img/QR.png', width: 200)),
+    Center(child: Text('Perfil', style: TextStyle(fontSize: 24))),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() { // Aquí puedes usar setState ya que está en la clase correcta que maneja el estado
+      _selectedIndex = index;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    /*return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('¡Bienvenido!', style: TextStyle(fontSize: 24)),
-            ElevatedButton(
-              onPressed: () => Navigator.pushNamed(context, '/menu'),
-              child: Text('Ir al Menú'),
-            ),
-          ],
-        ),
-      ),
-    );*/
-
-    int _selectedIndex = 0;
-    final List<Widget> _pages = [
-      Center(child: Text('Inicio', style: TextStyle(fontSize: 24))),
-      Center(child: Image.asset('img/QR.png', width: 200)),
-      Center(child: Text('Perfil', style: TextStyle(fontSize: 24))),
-    ];
-
-    void _onItemTapped(int index) {
-      setState(() {
-        _selectedIndex = index;
-      });
-    }
-
     return Scaffold(
       backgroundColor: const Color.fromRGBO(99, 98, 98, 1),
       appBar: AppBar(
